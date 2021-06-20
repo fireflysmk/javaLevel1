@@ -73,7 +73,7 @@ public class HomeWorkApp {
         int[] shiftArr2 = {20,30,40,5,5, 10, 20};
 
         arrayShiftIndex(shiftArr, 2);
-        arrayShiftIndex(shiftArr2, 3);
+        arrayShiftIndex(shiftArr2, -2);
 
     }
 
@@ -171,51 +171,52 @@ checkBalance([1, 1, 1, ||| 2, 1]) → true, т.е. 1 + 1 + 1 = 2 + 1
     public static void arrayShiftIndex (int[] arr, int delta) {
 
         System.out.println("input array: " + Arrays.toString(arr));
+        System.out.println("input delta: " + delta);
+        System.out.println("arr.length: " + arr.length);
 
         // { 1, 2 ,3 }
         // { 2, 1 ,3 }
         // { 2, 3, 1 }
 
         int tempVal = 0;
+        int counter = 0;
 
-        if (delta > 0 ) {
-            for (int n = 0; n < delta; n++) {
-
-                for (int i = 0; i < arr.length - 1; i++) {
-                    tempVal = arr[i]; // 1 // 1
-                    arr[i] = arr[i + 1]; //a[0] = 2 // a[1] = 3
-                    arr[i + 1] = tempVal;// a[1] = 1 // a[2] = 1
-
-                }
-            }
-        } else if (delta < 0) {
-            delta = Math.abs(delta);
-
-            /*
-
-            Не успел продумать отрицательное смещение, начал за пару часов до урока...
-            
-
-
-            for (int n = 0; n < delta; n++) {
-                // { 1, 2 ,3, 4}
-
-
-
-                // {2, 3 ,4 ,1} <--
-
-
-                for (int i = 0; i < arr.length - 1; i++) {
-                    tempVal = arr[arr.length - 1]; // 3 // 1
-                    arr[arr.length - 1] = arr[arr.length - 1 - 1]; //a[2] = 2 // a[1] = 3
-                    arr[arr.length - 1 - 1] = tempVal;// a[1] = 1 // a[2] = 1
-
-                }
-            }
-
-             */
-
+        if (Math.abs(delta) == arr.length ) {
+            // no need to do anything, input = result
+            System.out.println("result array: "  +Arrays.toString(arr));
+            return;
         }
+
+        if (delta > 0 && delta > arr.length )  {
+            counter = delta % arr.length;
+            System.out.println("delta > 0 && delta > arr.length, counter = " + counter);
+        }  else if (delta < 0 ) {
+            if (Math.abs(delta)  > arr.length) {
+                counter = arr.length -  Math.abs(delta) % arr.length;
+            } else {
+                counter =  arr.length - Math.abs(delta);
+            }
+
+        } else {
+            counter = delta;
+        }
+        System.out.println("counter: " + counter);
+
+        for (int n = 0; n < counter; n++) {
+
+            tempVal = arr[arr.length - 1];
+            for (int i = 0; i < arr.length - 1; i++) {
+                arr[arr.length - 1 - i] =  arr[arr.length - 2 - i];
+            }
+            arr[0] = tempVal;
+        }
+
+        // {1, 2, 3, 4, 5}
+        // tempval = 5
+        //  arr[arr.length - 1 - i] =  arr[arr.length - 2 - i]
+        // {1,2 ,3 ,4 ,4}
+        // {1,2, 3, 3, 4}
+        // {1,2, 2,3 ,4
 
         System.out.println("result array: "  +Arrays.toString(arr));
 
