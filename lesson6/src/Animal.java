@@ -59,6 +59,7 @@ public abstract class Animal {
         }
     }
 
+    /*
     public <T> boolean overcomeObstacles(T obtacles){
         int obtDist;
 
@@ -81,6 +82,23 @@ public abstract class Animal {
                 System.out.println(name + " не смог преодолеть препятствие River(" + obtDist + "м.)");
             }
         }
+        return false;
+    }
+    */
+
+
+    public boolean overcomeObstacles(Obtacles obtacles){
+        int obtDist;
+
+        obtDist = obtacles.getDistance();
+
+        if (obtDist <= maxRunDistance) {
+            System.out.println(name + " прошел препятствие "  + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+            return true;
+        } else {
+            System.out.println(name + " не смог преодолеть препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+        }
+
         return false;
     }
 
