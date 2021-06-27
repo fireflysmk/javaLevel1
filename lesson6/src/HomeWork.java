@@ -17,7 +17,7 @@ public class HomeWork {
         System.out.println("количество животных: " + cat.getAnimalCounter());
 
         River river1 = new River(5);
-        River river2 = new River(7);
+        River river2 = new River(8);
 
         Road road1 = new Road(190);
         Road road2 = new Road(220);

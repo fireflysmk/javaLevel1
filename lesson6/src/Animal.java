@@ -59,46 +59,26 @@ public abstract class Animal {
         }
     }
 
-    /*
-    public <T> boolean overcomeObstacles(T obtacles){
-        int obtDist;
-
-        if (obtacles instanceof Road) {
-            obtDist = ((Road) obtacles).getDistance();
-            //System.out.println("Road " +  obtDist + " м");
-            if (obtDist <= maxRunDistance) {
-                System.out.println(name + " прошел препятствие Road (" + obtDist + "м.)");
-                return true;
-            } else {
-                System.out.println(name + " не смог преодолеть препятствие Road(" + obtDist + "м.)");
-            }
-        } else if (obtacles instanceof River) {
-            obtDist = ((River) obtacles).getDistance();
-            //System.out.println("River " +  obtDist + " м");
-            if (obtDist <= maxSwimDistance) {
-                System.out.println(name + " прошел препятствие River (" + obtDist + "м.)");
-                return true;
-            } else {
-                System.out.println(name + " не смог преодолеть препятствие River(" + obtDist + "м.)");
-            }
-        }
-        return false;
-    }
-    */
-
-
     public boolean overcomeObstacles(Obtacles obtacles){
         int obtDist;
 
         obtDist = obtacles.getDistance();
 
-        if (obtDist <= maxRunDistance) {
-            System.out.println(name + " прошел препятствие "  + obtacles.getObtacleName() + "(" + obtDist + "м.)");
-            return true;
-        } else {
-            System.out.println(name + " не смог преодолеть препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+        if (obtacles instanceof Road) {
+            if (obtDist <= maxRunDistance) {
+                System.out.println(name + " прошел препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+                return true;
+            } else {
+                System.out.println(name + " не смог преодолеть препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+            }
+        } else if (obtacles instanceof River) {
+            if (obtDist <= maxSwimDistance) {
+                System.out.println(name + " прошел препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+                return true;
+            } else {
+                System.out.println(name + " не смог преодолеть препятствие " + obtacles.getObtacleName() + "(" + obtDist + "м.)");
+            }
         }
-
         return false;
     }
 
