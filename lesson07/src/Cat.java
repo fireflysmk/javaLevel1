@@ -1,4 +1,4 @@
-
+package ru.geekbrains.java1.lesson7_OOP;
 
 import java.util.Arrays;
 /*
@@ -13,7 +13,6 @@ public class Cat {
     private String name;
     private int appetite;
     private Flea[] fleas;
-    private boolean fullness;
 
     public Cat(String name, int appetite) {
         this.name = name;
@@ -21,10 +20,8 @@ public class Cat {
     }
 
     public void eat(Bowl bowl) {
-        if (bowl.decreaseFood(this.appetite)) {
-            System.out.printf("Cat %s ate some food: %d\n", this.name, this.appetite);
-            this.fullness = true;
-        }
+        bowl.decreaseFood(this.appetite);
+        System.out.printf("Cat %s ate some food: %d\n", this.name, this.appetite);
     }
 
     public void setFleas(Flea[] fleas) {
@@ -41,7 +38,6 @@ public class Cat {
                 "name='" + name + '\'' +
                 ", appetite=" + appetite +
                 ", fleas=" + Arrays.toString(fleas) +
-                ", fullness=" + fullness +
                 '}';
     }
 }

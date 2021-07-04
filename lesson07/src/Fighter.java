@@ -1,3 +1,5 @@
+package ru.geekbrains.java1.lesson7_OOP;
+
 public class Fighter {
     private String name;
     private int health;
