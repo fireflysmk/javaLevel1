@@ -1,10 +1,12 @@
+package ru.geekbrains.java1.lesson7_OOP;
+
 import java.util.Scanner;
 
 public class Classwork {
     public static void main(String[] args) {
 //        stringsExample();
 //        sbExample();
-          catsAndBowls();
+//        catsAndBowls();
 //        fightExample();
 
         Frog frog = new Frog("Frog");
@@ -53,11 +55,9 @@ public class Classwork {
     private static void catsAndBowls() {
         Cat cat = new Cat("Barsik", 10);
         Cat cat1 = new Cat("Murzik", 20);
-        Cat cat2 = new Cat("Murzik2", 40);
-        Cat cat3 = new Cat("Murzik3", 60);
         Bowl bowl = new Bowl();
-        bowl.putFood(100);
-        /*
+        bowl.putFood(40);
+
         System.out.printf("There is %d food in bowl\n", bowl.getFoodAmount());
         cat.eat(bowl);
         System.out.printf("There is %d food in bowl\n", bowl.getFoodAmount());
@@ -70,23 +70,8 @@ public class Classwork {
                 new Flea(),
                 new Flea()
         });
-        */
 
-        Cat[] cats = new Cat[4];
-        cats[0] = cat;
-        cats[1] = cat1;
-        cats[2] = cat2;
-        cats[3] = cat3;
-
-
-
-        for (Cat c : cats) {
-            c.eat(bowl);
-            System.out.println(c);
-        }
-
-        //System.out.println(cat);
-        //System.out.println(cat1);
+        System.out.println(cat);
     }
 
     private static void sbExample() {

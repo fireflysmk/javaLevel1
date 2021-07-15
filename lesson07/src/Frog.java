@@ -1,3 +1,4 @@
+package ru.geekbrains.java1.lesson7_OOP;
 
 public class Frog {
     private String name;
